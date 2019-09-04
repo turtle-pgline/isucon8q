@@ -337,7 +337,7 @@ func main() {
 	e.Static("/", "public")
 	e.GET("/testtest", func(c echo.Context) error {
 		return c.JSON(200, echo.Map{
-			"test": "ok",
+			"test": "NG",
 		})
 	})
 	e.GET("/", func(c echo.Context) error {
