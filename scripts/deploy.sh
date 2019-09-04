@@ -14,4 +14,7 @@ scp ./torb root@150.95.216.44:/home/isucon/torb/webapp/go/torb
 ssh -t root@150.95.216.44 "chown isucon:isucon /home/isucon/torb/webapp/go/torb"
 ssh -t root@150.95.216.44 "systemctl start torb.go"
 
-echo "deployed!" | notify_slack
+ssh -t root@150.95.216.44 "rm -rf /var/log/nginx/access.log"
+ssh -t root@150.95.216.44 "systemctl restart nginx"
+
+# echo "deployed!" | notify_slack
