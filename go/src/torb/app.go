@@ -335,6 +335,11 @@ func main() {
 	e.Use(session.Middleware(sessions.NewCookieStore([]byte("secret"))))
 	e.Use(middleware.LoggerWithConfig(middleware.LoggerConfig{Output: os.Stderr}))
 	e.Static("/", "public")
+	e.GET("/testtest", func(c echo.Context) error {
+		return c.JSON(200, echo.Map{
+			"test": "ok",
+		})
+	})
 	e.GET("/", func(c echo.Context) error {
 		events, err := getEvents(false)
 		if err != nil {
